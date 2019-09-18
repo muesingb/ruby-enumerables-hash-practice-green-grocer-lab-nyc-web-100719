@@ -4,11 +4,15 @@ def consolidate_cart(cart) #cart is array [{"AVOCADO" => {:price => 3.00, :clear
 cart_hash = {}
 cart.each do |item|
   cart_hash[item.keys[0]] = item.values[0]
-    if cart_hash[item.keys[0]][:count]
-     cart_hash[item.keys[0]][:count] += 1
-    else
-     cart_hash[item.keys[0]][:count] = 1
-    end
+
+cart_hash[item.keys[0]][:count]? cart_hash[item.keys[0]][:count] += 1 : cart_hash[item.keys[0]][:count] = 1
+
+
+#    if cart_hash[item.keys[0]][:count]
+#     cart_hash[item.keys[0]][:count] += 1
+#    else
+#     cart_hash[item.keys[0]][:count] = 1
+#    end
   end
 cart_hash
 
