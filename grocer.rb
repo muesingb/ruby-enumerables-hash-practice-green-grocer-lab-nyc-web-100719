@@ -39,5 +39,21 @@ def apply_clearance(cart) #discount the price of every item on clearance by 20 p
 end
 
 def checkout(cart, coupons)
-  cart.consolidate_cart
+cart = consolidate_cart(cart: cart)
+apply_coupons(cart, coupons)
+apply_clearance(cart)
+total = 0
+ checkout.each do |cart_key, cart_value|
+
+ end
+return cart
 end
+
+#def hello
+#  puts "Hello!"
+#end
+
+#def greet
+#  hello
+#end
+#greet
