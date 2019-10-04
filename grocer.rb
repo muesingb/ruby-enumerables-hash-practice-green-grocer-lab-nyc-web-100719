@@ -22,10 +22,9 @@ coupons.each do |coupon|
       :clearance => (cart_item_dis[:clearance]), #clearance same as regular item
       :count => (if applied_coupon #if item already couponed,
                 applied_coupon[:count] + coupon[:num] #add couponed count to new coupon applied number
-                cart_item_dis[:count] = (cart_item_dis[:count] - coupon[:num])
                 else coupon[:num] #or new count is count of coupon
                 end)}
-    #cart_item_dis[:count] = (cart_item_dis[:count] - coupon[:num]) #update count of non-couponed items of same name
+    cart_item_dis[:count] = (cart_item_dis[:count] - coupon[:num]) #update count of non-couponed items of same name
   end #else it does not change the item in the cart if that items coupon does not exist
 end
   return cart
