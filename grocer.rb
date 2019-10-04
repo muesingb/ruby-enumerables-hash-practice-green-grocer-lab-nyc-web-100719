@@ -17,7 +17,7 @@ coupons.each do |coupon|
   coupon_item = coupon[:item] #get item name out of array
   cart_item_dis = cart[coupon_item]
   applied_coupon = cart[(coupon_item + " W/COUPON")] #Has coupon been applied - does name w/coupon already exist in cart?
-  if cart_item_dis #does the item to be couponed exist in the cart? Compares names with coupon array
+  if cart_item_dis && cart[:item][:count] >= coupon[:item] #does the item to be couponed exist in the cart? Compares names with coupon array
     cart[(coupon_item + " W/COUPON")] = {:price => (coupon[:cost]/coupon[:num]), #cart key is item w/coupon, price from ex:5.00/2, cost/num
       :clearance => (cart_item_dis[:clearance]), #clearance same as regular item
       :count => (if applied_coupon #if item already couponed,
