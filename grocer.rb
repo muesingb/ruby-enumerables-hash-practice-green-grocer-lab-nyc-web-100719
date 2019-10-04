@@ -34,8 +34,8 @@ def apply_clearance(cart) #discount the price of every item on clearance by 20 p
   cart.map {|cart_key, cart_value|
     cart_value[:clearance]? cart_value[:price] -= ((cart_value[:price])*0.8).round(2) : cart_value[:price]} #is clearance true? True - apply 20% discount : False - keep same price
   return cart
-  cart.each do |product_name, stats|
-    stats[:price] -= stats[:price]*0.2 if stats[:clearance]
+  #cart.each do |product_name, stats|
+  #  stats[:price] -= stats[:price]*0.2 if stats[:clearance]
 end
 
 def checkout(cart, coupons)
