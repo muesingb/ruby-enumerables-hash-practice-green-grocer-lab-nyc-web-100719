@@ -20,11 +20,11 @@ coupons.each do |coupon|
   if cart_item_dis #does the item to be couponed exist in the cart? Compares names with coupon array
     cart[(coupon_item + " W/COUPON")] = {:price => (coupon[:cost]/coupon[:num]), #cart key is item w/coupon, price from ex:5.00/2, cost/num
       :clearance => (cart_item_dis[:clearance]), #clearance same as regular item
-      :count => (if applied_coupon #if item already couponed,
+      :count => (if applied_coupon cart_item_dis[:count] = (cart_item_dis[:count] - coupon[:num]) #if item already couponed,
                 applied_coupon[:count] + coupon[:num] #add couponed count to new coupon applied number
                 else coupon[:num] #or new count is count of coupon
                 end)}
-    cart_item_dis[:count] = (cart_item_dis[:count] - coupon[:num]) #update count of non-couponed items of same name
+    #cart_item_dis[:count] = (cart_item_dis[:count] - coupon[:num]) #update count of non-couponed items of same name
   end #else it does not change the item in the cart if that items coupon does not exist
 end
   return cart
